@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\plugins\fontawesome-free\NewFolder\**" />
+    <Content Remove="wwwroot\plugins\fontawesome-free\NewFolder\**" />
+    <EmbeddedResource Remove="wwwroot\plugins\fontawesome-free\NewFolder\**" />
+    <None Remove="wwwroot\plugins\fontawesome-free\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Loja.Domain\Loja.Domain.csproj" />
+    <ProjectReference Include="..\Loja.Infra\Loja.Infra.csproj" />
+    <ProjectReference Include="..\Loja.Service\Loja.Service.csproj" />
+  </ItemGroup>
+
+</Project>

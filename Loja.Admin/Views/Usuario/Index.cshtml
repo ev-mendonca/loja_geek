@@ -1,0 +1,104 @@
+﻿@model List<Usuario>
+@{
+    ViewData["title"] = "Usuarios";
+}
+@section breadCrumb
+{
+        <li class="breadcrumb-item active">Usuarios</li>
+        @*<li class="breadcrumb-item"><a href="#">Layout</a></li>
+        <li class="breadcrumb-item active">Top Navigation</li>*@
+}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title col-10">Lista de Usuarios</h3>
+                    <a asp-action="Detalhe" class="btn btn-primary col-2">Inserir</a>
+                </div>
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Login</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var usuario in Model)
+                            {
+                            <tr>
+                                <td>@usuario.Nome</td>
+                                <td>@usuario.Email</td>
+                                <td>@usuario.Login</td>
+                                <td>
+                                    <a asp-action="Detalhe" asp-route-id="@usuario.ID" class="btn btn-sm btn-secondary">Editar</a>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section styles
+{
+    <link rel="stylesheet" href="@Url.Content("~/plugins/datatables-responsive/css/responsive.bootstrap4.min.css")">
+}
+
+@section scripts
+{
+    <script src="@Url.Content("~/plugins/datatables/jquery.dataTables.min.js")"></script>
+    <script src="@Url.Content("~/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")"></script>
+    <script src="@Url.Content("~/plugins/datatables-responsive/js/dataTables.responsive.min.js")"></script>
+    <script src="@Url.Content("~/plugins/datatables-responsive/js/responsive.bootstrap4.min.js")"></script>
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": false,
+                "language": {
+                    "sEmptyTable": "Nenhum registro encontrado",
+                    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                    "sLengthMenu": "Mostrar _MENU_ resultados por página",
+                    "sSearch": "Pesquisar",
+                    "sZeroRecords": "Nenhum registro encontrado",
+                    "oPaginate": {
+                        "sNext": "Próximo",
+                        "sPrevious": "Anterior",
+                        "sFirst": "Primeiro",
+                        "sLast": "Último",
+                        "oAria": {
+                            "sSortAscending": ": Ordenar colunas de forma ascendente",
+                            "sSortDescending": ": Ordenar colunas de forma descendente"
+                        },
+                        "select": {
+                            "rows": {
+                                "_": "Selecionado %d linhas",
+                                "0": "Nenhuma linha selecionada",
+                                "1": "Selecionado 1 linha"
+                            }
+                        },
+                        "buttons": {
+                            "copy": "Copiar para a área de transferência",
+                            "copyTitle": "Cópia bem sucedida",
+                            "copySuccess": {
+                                "1": "Uma linha copiada com sucesso",
+                                "_": "%d linhas copiadas com sucesso"
+                            }
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+
+}

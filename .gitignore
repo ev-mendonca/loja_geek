@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Loja.Admin/bin
+/Loja.Admin/obj
+/Loja.Admin/Loja.Admin.csproj.user
+/Loja.Domain/bin
+/Loja.Domain/obj
+/Loja.Infra/bin
+/Loja.Infra/obj
+/Loja.Infra/obj
+/Loja.Repository/bin
+/Loja.Repository/obj
+/Loja.Repository/Loja.Repository.csproj.user
+/Loja.Service/bin
+/Loja.Service/obj
